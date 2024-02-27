@@ -39,7 +39,7 @@
       <input class="form-control"
              type="email"
              placeholder="Correo electrónico"
-             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2-3}$"
+             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
              [class.is-invalid]="correo.invalid && correo.touched"
              name="correo"
              ngModel
