@@ -12,15 +12,23 @@ export class TemplateComponent {
   usuario = {
     nombre:'Brigitte',
     apellido:'Padilla',
-    correo:'brigitte@gmail.com'
+    correo:'brigitte@gmail.com',
+    pais:''
   }
+
+  paises: any[] = [];
 
   constructor(private paisService:PaisService){}
 
   ngOnInit(): void {
     this.paisService.getPaises()
     .subscribe( paises => {
-      console.log(paises);
+      this.paises = paises;
+      console.log(this.paises);
+      this.paises.unshift({
+        nombre:'[Seleccione Pais]',
+        codigo:''
+      })
     })
   }
 
