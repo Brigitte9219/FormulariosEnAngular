@@ -9,7 +9,7 @@ import { NgForm } from '@angular/forms';
 export class TemplateComponent {
 
   usuario = {
-    nombre:'Carlos'
+    nombre:''
   }
 
   guardar(forma:NgForm){
