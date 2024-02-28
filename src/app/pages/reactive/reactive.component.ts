@@ -32,6 +32,10 @@ export class ReactiveComponent {
     return this.forma.get('correo')?.invalid && this.forma.get('correo')?.touched
   }
 
+  get usuarioNoValido(){
+    return this.forma.get('usuario')?.invalid && this.forma.get('usuario')?.touched
+  }
+
   get distritoNoValido(){
     return this.forma.get('direccion.distrito')?.invalid && this.forma.get('direccion.distrito')?.touched
   }
@@ -56,6 +60,7 @@ export class ReactiveComponent {
       nombre:['', Validators.required],
       apellido:['', [Validators.required, Validators.minLength(5), this.validadores.noHerrera]],
       correo:['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
+      usuario:['', , this.validadores.existeUsuario],
       pass1:['', Validators.required],
       pass2:['', Validators.required],
       direccion: this.fb.group({
