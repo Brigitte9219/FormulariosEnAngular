@@ -40,16 +40,31 @@ export class ReactiveComponent {
     return this.forma.get('direccion.ciudad')?.invalid && this.forma.get('direccion.ciudad')?.touched
   }
 
+  get pass1NoValido(){
+    return this.forma.get('pass1')?.invalid && this.forma.get('pass1')?.touched
+  }
+
+  get pass2NoValido(){
+    const pass1 = this.forma.get('pass1')?.value;
+    const pass2 = this.forma.get('pass2')?.value;
+
+    return (pass1 == pass2) ? false : true;
+  }
+
   crearFormulario(){
     this.forma = this.fb.group({
       nombre:['', Validators.required],
       apellido:['', [Validators.required, Validators.minLength(5), this.validadores.noHerrera]],
       correo:['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
+      pass1:['', Validators.required],
+      pass2:['', Validators.required],
       direccion: this.fb.group({
         distrito:['', Validators.required],
         ciudad:['', Validators.required]
       }),
       pasatiempos: this.fb.array([])
+    },{
+      Validators: this.validadores.passwordsIguales('pass1','pass2')
     });
   }
 
@@ -58,6 +73,8 @@ export class ReactiveComponent {
       nombre:'Brigitte',
       apellido:'Padilla',
       correo:'brigitte@gmail.com',
+      pass1:'',
+      pass2:'',
       direccion:{
         distrito:'ontario',
         ciudad:'ottawa'
