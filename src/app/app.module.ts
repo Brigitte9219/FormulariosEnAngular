@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TemplateComponent } from './pages/template/template.component';
 import { ReactiveComponent } from './pages/reactive/reactive.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -18,7 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     FormsModule,//para no hacer refresh o recargar la página con el formulario
-    HttpClientModule//Hacer peticiones HTTP
+    HttpClientModule,//Hacer peticiones HTTP
+    ReactiveFormsModule//Formularios reactivos
   ],
   providers: [],
   bootstrap: [AppComponent]

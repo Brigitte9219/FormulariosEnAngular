@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-reactive',
@@ -7,4 +8,21 @@ import { Component } from '@angular/core';
 })
 export class ReactiveComponent {
 
+  forma!: FormGroup;
+
+  constructor(private fb:FormBuilder){
+    this.crearFormulario();
+  }
+
+  crearFormulario(){
+    this.forma = this.fb.group({
+      nombre:['Brigitte'],
+      apellido:['Padilla'],
+      correo:['Brigitte@gmail.com']
+    });
+  }
+
+  guardar(){
+    console.log(this.forma);
+  }
 }
