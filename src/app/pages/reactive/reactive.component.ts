@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-reactive',
@@ -13,6 +13,10 @@ export class ReactiveComponent {
   constructor(private fb:FormBuilder){
     this.crearFormulario();
     this.cargarDataAlFormulario();
+  }
+
+  get pasatiempos(){
+    return this.forma.get('pasatiempos') as FormArray;
   }
 
   get nombreNoValido(){
@@ -43,7 +47,10 @@ export class ReactiveComponent {
       direccion: this.fb.group({
         distrito:['', Validators.required],
         ciudad:['', Validators.required]
-      })
+      }),
+      pasatiempos: this.fb.array([
+        [],[]
+      ])
     });
   }
 
