@@ -68,11 +68,39 @@
               [ngModel]="usuario.pais"
               required
               [disabled]="paises.length === 0"
-              [class.is-invalid]="pais.invalid && pais.untouched"
+              [class.is-invalid]="pais.invalid && pais.touched"
               #pais="ngModel">
         <option *ngFor="let pais of paises" [value]="pais.codigo" > {{pais.nombre}} </option>
       </select>
+    </div>
+  </div>
 
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Pais</label>
+    <div class="col-8">
+      <div class="form-check form-check-inline">
+        <input class="form-check-input"
+                type="radio"
+                name="genero"
+                value="M"
+                [ngModel]="usuario.genero"
+                [class.is-invalid]="genero.invalid && genero.touched"
+                required
+                #genero="ngModel">
+        <label class="form-check-label">Masculino</label>
+      </div>
+
+      <div class="form-check form-check-inline">
+        <input class="form-check-input"
+                type="radio"
+                name="genero"
+                value="F"
+                [ngModel]="usuario.genero"
+                [class.is-invalid]="genero.invalid && genero.touched"
+                required
+                #genero="ngModel">
+        <label class="form-check-label">Femenino</label>
+      </div>
     </div>
   </div>
 

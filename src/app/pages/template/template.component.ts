@@ -13,7 +13,8 @@ export class TemplateComponent {
     nombre:'Brigitte',
     apellido:'Padilla',
     correo:'brigitte@gmail.com',
-    pais:''
+    pais:'COL',
+    genero:'F'
   }
 
   paises: any[] = [];
