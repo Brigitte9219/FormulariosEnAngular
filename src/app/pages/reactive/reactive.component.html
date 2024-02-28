@@ -52,13 +52,17 @@
       <input type="text"
               class="form-control"
               placeholder="Distrito"
-              formControlName="distrito">
+              formControlName="distrito"
+              [class.is-invalid]="distritoNoValido">
+      <span *ngIf="distritoNoValido" class="text-danger" >El distrito es obligatorio</span>
     </div>
     <div class="col">
       <input type="text"
               class="form-control"
               placeholder="Ciudad"
-              formControlName="ciudad">
+              formControlName="ciudad"
+              [class.is-invalid]="ciudadNoValido">
+      <span *ngIf="ciudadNoValido" class="text-danger">La ciudad es obligatoria</span>
     </div>
   </div>
 </div>
